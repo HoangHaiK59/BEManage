@@ -10,18 +10,18 @@ var cors = require('cors');
 
 require('dotenv').config();
 
-app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin,Origin, X-Requested-With, Content-Type, Accept, Authorization, Content-Length');
-    res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE,PATCH, OPTIONS');
-    res.header('Content-type', 'application/json')
+// app.use(function (req, res, next) {
+//     res.header('Access-Control-Allow-Origin', '*');
+//     res.header('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin,Origin, X-Requested-With, Content-Type, Accept, Authorization, Content-Length');
+//     res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE,PATCH, OPTIONS');
+//     res.header('Content-type', 'application/json')
 
-    if(req.method === 'OPTIONS') {
-        res.send(200);
-    }else {
-        next();
-    }
-});
+//     if(req.method === 'OPTIONS') {
+//         res.send(200);
+//     }else {
+//         next();
+//     }
+// });
 
 app.use(cors());
 
