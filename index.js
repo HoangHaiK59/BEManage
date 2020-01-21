@@ -6,6 +6,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var app = express();
+var cors = require('cors');
 
 require('dotenv').config();
 
@@ -20,7 +21,9 @@ app.use(function (req, res, next) {
     }else {
         next();
     }
-})
+});
+
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
