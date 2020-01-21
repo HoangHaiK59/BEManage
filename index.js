@@ -124,7 +124,8 @@ app.get('/', function (req, res) {
     res.send('<h1>Welcome to manage</h1>')
 })
 
-app.post('/unpublish', function (req, res) {
+app.options('*',cors());
+app.post('/unpublish',cors(), function (req, res) {
     console.log(req.body);
     var unpublish = {
         ...req.body.params.unpublish,
@@ -138,7 +139,8 @@ app.post('/unpublish', function (req, res) {
     });
 })
 
-app.get('/unpublishes', function (req, res) {
+app.options('*',cors());
+app.get('/unpublishes',cors(), function (req, res) {
 
     Creative.find({ type: 'unpublish' }, function (err, docs) {
         if (err) {
@@ -153,7 +155,8 @@ app.get('/unpublishes', function (req, res) {
     })
 })
 
-app.delete('/unpublish', function (req, res) {
+app.options('*',cors());
+app.delete('/unpublish',cors(), function (req, res) {
 
     console.log(req.query.id);
 
@@ -168,7 +171,8 @@ app.delete('/unpublish', function (req, res) {
     })
 })
 
-app.delete('/unpublishes', function (req, res) {
+app.options('*',cors());
+app.delete('/unpublishes',cors(), function (req, res) {
 
     Creative.deleteMany({type: req.query.type}, function(err, doc){
         if(err) {
@@ -181,7 +185,8 @@ app.delete('/unpublishes', function (req, res) {
     })
 });
 
-app.post('/schedule', function(req, res){
+app.options('*',cors());
+app.post('/schedule',cors(), function(req, res){
     console.log(req.body);
     var schedule = {
         ...req.body.params.schedule,
@@ -195,7 +200,8 @@ app.post('/schedule', function(req, res){
     });
 });
 
-app.get('/schedules', function (req, res) {
+app.options('*',cors());
+app.get('/schedules',cors(), function (req, res) {
 
     Creative.find({ type: 'schedule' }, function (err, docs) {
         if (err) {
@@ -210,7 +216,8 @@ app.get('/schedules', function (req, res) {
     })
 })
 
-app.delete('/schedule', function (req, res) {
+app.options('*',cors());
+app.delete('/schedule',cors(), function (req, res) {
     console.log(req.query.id)
     Creative.deleteOne({id: req.query.id}, function(err, doc){
         if(err) {
@@ -223,7 +230,8 @@ app.delete('/schedule', function (req, res) {
     })
 })
 
-app.delete('/schedules', function (req, res) {
+app.options('*',cors());
+app.delete('/schedules',cors(), function (req, res) {
 
     Creative.deleteMany({type: req.query.type}, function(err, doc){
         if(err) {
