@@ -112,7 +112,8 @@ var Creative = mongoose.model('Creative', creativeSchema, 'creative');
 // });
 
 app.get('/', function (req, res) {
-    res.send(<h1>Welcome to manage</h1>)
+    res.set('Content-Type', 'text/html')
+    res.send('<h1>Welcome to manage</h1>')
 })
 
 app.post('/unpublish', function (req, res) {
