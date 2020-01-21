@@ -112,10 +112,10 @@ var Creative = mongoose.model('Creative', creativeSchema, 'creative');
 // });
 
 app.get('/', function (req, res) {
-    res.send('<h1>Welcome</h1>')
+    res.send(<h1>Welcome to manage</h1>)
 })
 
-app.post('/v1/unpublish', function (req, res) {
+app.post('/unpublish', function (req, res) {
     console.log(req.body);
     var unpublish = {
         ...req.body.params.unpublish,
@@ -129,7 +129,7 @@ app.post('/v1/unpublish', function (req, res) {
     });
 })
 
-app.get('/v1/unpublishes', function (req, res) {
+app.get('/unpublishes', function (req, res) {
 
     Creative.find({ type: 'unpublish' }, function (err, docs) {
         if (err) {
@@ -144,7 +144,7 @@ app.get('/v1/unpublishes', function (req, res) {
     })
 })
 
-app.delete('/v1/unpublish', function (req, res) {
+app.delete('/unpublish', function (req, res) {
 
     console.log(req.query.id);
 
@@ -159,7 +159,7 @@ app.delete('/v1/unpublish', function (req, res) {
     })
 })
 
-app.delete('/v1/unpublishes', function (req, res) {
+app.delete('/unpublishes', function (req, res) {
 
     Creative.deleteMany({type: req.query.type}, function(err, doc){
         if(err) {
@@ -172,7 +172,7 @@ app.delete('/v1/unpublishes', function (req, res) {
     })
 });
 
-app.post('/v1/schedule', function(req, res){
+app.post('/schedule', function(req, res){
     console.log(req.body);
     var schedule = {
         ...req.body.params.schedule,
@@ -186,7 +186,7 @@ app.post('/v1/schedule', function(req, res){
     });
 });
 
-app.get('/v1/schedules', function (req, res) {
+app.get('/schedules', function (req, res) {
 
     Creative.find({ type: 'schedule' }, function (err, docs) {
         if (err) {
@@ -201,7 +201,7 @@ app.get('/v1/schedules', function (req, res) {
     })
 })
 
-app.delete('/v1/schedule', function (req, res) {
+app.delete('/schedule', function (req, res) {
     console.log(req.query.id)
     Creative.deleteOne({id: req.query.id}, function(err, doc){
         if(err) {
@@ -214,7 +214,7 @@ app.delete('/v1/schedule', function (req, res) {
     })
 })
 
-app.delete('/v1/schedules', function (req, res) {
+app.delete('/schedules', function (req, res) {
 
     Creative.deleteMany({type: req.query.type}, function(err, doc){
         if(err) {
