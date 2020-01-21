@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var app = express();
 
+require('dotenv').config();
+
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin,Origin, X-Requested-With, Content-Type, Accept, Authorization');
@@ -225,6 +227,6 @@ app.delete('/v1/schedules', function (req, res) {
     })
 });
 
-app.listen(8000, function () {
-    console.log('App listent at port 8000');
+app.listen(process.env.PORT||5000, function () {
+    console.log(`App listent at port ${process.env.PORT||5000}`);
 })
